@@ -1,5 +1,14 @@
-function print(obj) {
-  console.log(obj);
+const LOG = 0, WARN = 1, ERR = 2;
+
+function print(obj, stat=LOG) {
+  let msg = obj;
+  if( Array.isArray(obj) ) msg = obj.toString();
+  switch (stat) {
+    case LOG:   console.log(msg);   break;
+    case WARN:  console.warn(msg);  break;
+    case ERR:   console.error(msg); break;
+    default:    console.log(msg);
+  }
 }
 
 function debug(obj=' ') {
