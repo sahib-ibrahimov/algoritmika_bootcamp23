@@ -23,6 +23,19 @@ const odd = n => n % 2;
 
 const random = (max=100, min=0) => Math.trunc( Math.random() * (max-min) + min);
 
+function reverse(str) {
+  let t = '';
+  for(let i=str.length-1; i>=0; --i) t += str[i];
+  return t;
+}
+
+function isPolindrom(str) {
+  for(let i=0, j=str.length-1; i<j; ++i, --j)
+    if(str[i] !== str[j])
+      return false;
+  return true;
+}
+
 function count(str, ch) {
   let cem = 0;
   for(let i=0; i<str.length; ++i)
