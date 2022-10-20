@@ -31,8 +31,13 @@ function count(str, ch) {
 }
 
 function isNumber(str) {
-  for(let i=0; i<str.length; ++i)
-    if( !isDigit(str[i]) )
-      return false;
-  return true;
+  return !isNaN( Number(str) );
+  // let point = false;
+  // for(let i=0; i<str.length; ++i)
+  //   if( !isDigit(str[i]) ) {
+  //     if( (str[i] === '.') && !point ) {
+  //       point = true;
+  //     } else return false;
+  //   }
+  // return true;
 }
