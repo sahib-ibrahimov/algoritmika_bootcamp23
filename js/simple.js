@@ -1,3 +1,18 @@
+function simpleList(n) {
+  const simple = [2];
+  for(let i=3; i<=n; i+=2) {
+    let status = true;
+    for(let j=0; j<simple.length; ++j) {
+      if(i % simple[j] === 0) {
+        status = false;
+        break;
+      }
+    }
+    if(status) simple.push(i);
+  }
+  return simple;
+}
+
 function isSimple(n) {
   if(!(n % 2) && (n !== 2)) return false;
   for(let i=3; i<n/2; i+=2) {
