@@ -60,3 +60,14 @@ function isNumber(str) {
   //   }
   // return true;
 }
+
+function printMatris(arr) {
+  const result = [];
+  for(let i=0; i<arr.length; i++) {
+    const temp = [];
+    for(let j=0; j<arr[i].length; j++)
+      temp.push(arr[i][j]);
+    result.push( temp.join('\t') );
+  }
+  console.log( result.join('\n') );
+}
