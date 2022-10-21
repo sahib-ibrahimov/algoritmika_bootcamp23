@@ -1,4 +1,4 @@
-const LOG = 0, WARN = 1, ERR = 2;
+const [LOG, WARN, ERR] = [0, 1, 2];
 
 function print(obj, stat=LOG) {
   let msg = obj;
