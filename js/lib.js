@@ -43,6 +43,12 @@ function count(str, ch) {
   return cem;
 }
 
+function intArray(arr) {
+  for(let i=0; i<arr.length; ++i)
+    arr[i] = parseInt( arr[i] );
+  return arr;
+}
+
 function isNumber(str) {
   return !isNaN( Number(str) );
   // let point = false;
