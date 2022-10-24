@@ -1,8 +1,7 @@
 const [LOG, WARN, ERR] = [0, 1, 2];
 
 function print(obj, stat=LOG) {
-  let msg = obj;
-  if( Array.isArray(obj) ) msg = obj.toString();
+  const msg = Array.isArray(obj) ? obj.toString() : obj;
   switch (stat) {
     case LOG:   console.log(msg);   break;
     case WARN:  console.warn(msg);  break;
@@ -11,9 +10,7 @@ function print(obj, stat=LOG) {
   }
 }
 
-function debug(obj=' ') {
-  console.warn(obj);
-}
+function debug(obj=' ') { console.warn(obj); }
 
 const isAlfa = ch => (('a' <= ch) && (ch <= 'z')) || (('A' <= ch) && (ch <= 'Z'));
 const isDigit = ch => ('0' <= ch) && (ch <= '9');
@@ -23,10 +20,15 @@ const odd = n => n % 2;
 
 const random = (max=100, min=0) => Math.trunc( Math.random() * (max-min) + min);
 
-function reverse(str) {
-  let t = '';
-  for(let i=str.length-1; i>=0; --i) t += str[i];
-  return t;
+const reverse = str => str.split('').reverse().join('');
+
+function shuffle(arr) {
+  for(let i=0; i<arr.length; i++) {
+    const t = arr[i]
+    arr[i] = arr[ random(arr.length) ];
+    arr[r] = t;
+  }
+  return arr;
 }
 
 function isPolindrom(str) {
@@ -71,3 +73,5 @@ function printMatris(arr) {
   }
   console.log( result.join('\n') );
 }
+
+Array.prototype.insert = (i, e) => { this.splice(i, 0, e); }
