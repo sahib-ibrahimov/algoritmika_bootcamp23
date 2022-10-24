@@ -12,6 +12,12 @@ function print(obj, stat=LOG) {
 
 function debug(obj=' ') { console.warn(obj); }
 
+function printLn(max=50, ch='-') {
+  const temp = [];
+  for(let i=0; i<max; ++i) temp.push(ch);
+  console.log(temp.join(''));
+}
+
 const isAlfa = ch => (('a' <= ch) && (ch <= 'z')) || (('A' <= ch) && (ch <= 'Z'));
 const isDigit = ch => ('0' <= ch) && (ch <= '9');
 
