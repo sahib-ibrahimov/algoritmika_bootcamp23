@@ -30,8 +30,9 @@ const reverse = str => str.split('').reverse().join('');
 
 function shuffle(arr) {
   for(let i=0; i<arr.length; i++) {
+    const r = random(arr.length);
     const t = arr[i]
-    arr[i] = arr[ random(arr.length) ];
+    arr[i] = arr[r];
     arr[r] = t;
   }
   return arr;
