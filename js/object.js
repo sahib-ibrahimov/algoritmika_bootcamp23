@@ -19,4 +19,5 @@ arr.forEach( user => {
   total += user.age;
 });
 total /= arr.length;
+
 print(`orta yas: ${total}`);
