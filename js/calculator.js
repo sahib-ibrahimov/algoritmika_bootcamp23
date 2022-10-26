@@ -1,34 +1,35 @@
 const calculator = {
   memory: 0,
-  plus(a, b) {
-    return a + b;
-  },
-  minus(a, b) {
-    return a - b;
-  },
-  multiply(a, b) {
-    return a * b;
-  },
-  divide(a, b) {
-    return a / b;
-  },
-  saveToMemory(x) {
-    this.memory = x;
+
+  getMemory() {
+    return this.memory;
   },
   clearMemory() {
     this.memory = 0;
   },
-  addToMemory(x) {
-    this.memory += x;
+  saveToMemory(x) {
+    this.memory = x;
+    return this;
   },
-  getMemory() {
-    return this.memory;
+
+  plus(x) {
+    this.memory += x;
+    return this;
+  },
+  minus(x) {
+    this.memory -= x;
+    return this;
+  },
+  multiply(x) {
+    this.memory *= x;
+    return this;
+  },
+  divide(x) {
+    this.memory /= x;
+    return this;
   }
 }
 
-calculator.saveToMemory(5);
-calculator.addToMemory( calculator.minus(8, 2) );
-print( calculator.getMemory() );
+calculator.saveToMemory(5).plus(3).divide(4).multiply(10).minus(3);
 
-calculator.clearMemory();
 print( calculator.getMemory() );
