@@ -13,6 +13,9 @@ class Element {
   append(obj) {
     this.elem.append(obj);
   }
+  remove() {
+    this.elem.remove();
+  }
   set text(str) {
     this.elem.innerText = str;
   }
