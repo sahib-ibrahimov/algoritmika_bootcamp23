@@ -102,15 +102,23 @@
   </table>
 
   <script>
+    
+    const [UP, DOWN] = ['˄', '˅'];
+
+    function trimSymbol() {
+      $a('th').forEach( th => {
+        let head = th.innerText;
+        const sym = head[head.length-1];
+        if( sym === UP || sym === DOWN ) {
+          head = head.substring(0, head.length-2);
+        }
+        th.innerText = head;
+      });
+    }
+
     function updateHead(element, i) {
-      const [UP, DOWN] = ['˄', '˅'];
-      let head = element.innerText;
-      let sym = head[head.length-1];
-      if( sym === UP || sym === DOWN ) {
-        head = head.substring(0, head.length-2);
-      }
-      sym = table.sorted[i] ? UP : DOWN;
-      element.innerText = `${head} ${sym}`;
+      trimSymbol();
+      element.innerText += ' ' + (table.sorted[i] ? UP : DOWN);
     }
 
     const table = new TableSort( $('table') );
