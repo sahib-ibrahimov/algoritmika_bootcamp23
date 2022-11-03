@@ -6,26 +6,9 @@
     <link rel="stylesheet" href="main.css" />
     <script src="./js/lib.js"></script>
     <script src="./js/dom.js"></script>
-    <script src="./js/table.js"></script>
-    <script src="./js/data.js"></script>
   </head>
   <body>
 
-    <script>
-      const format = e => e[0] === '-';
-      const bitcoin = e => e.split(' ')[0].toLowerCase() === 'bitcoin';
-
-      const table = new Table(document.body);
-      table.addClass('data');
-      table.createHeader( Object.keys(data[0]) );
-      table.createBody();
-      data.forEach( item => {
-        table.addRow( Object.values(item) );
-      });
-      table.colFormat(3, format, 'red', 'green');
-      table.colFormat(0, bitcoin, 'bitcoin', null);
-    </script>
-
-    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/main.js"></script>
   </body>
 </html>

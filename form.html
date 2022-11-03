@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML</title>
+    <link rel="stylesheet" href="main.css" />
+    <style media="screen">
+      input:focus, textarea:focus, select:focus, button:focus {
+        outline: none;
+        border-color: green;
+      }
+      input[required=""] {
+        color: red;
+      }
+    </style>
+    <script src="./js/lib.js"></script>
+    <script src="./js/dom.js"></script>
+  </head>
+  <body>
+    <form>
+    <table>
+      <tbody>
+        <tr>
+          <th><label for="login">Login:</label></th>
+          <td>
+            <input type="text" name="login" placeholder="login" value="user" required>
+            <p style="display:none;color:darkgreen;font-size:10px;font-style:italic;">login unikal olmalidir</p>
+          </td>
+        </tr>
+        <tr>
+          <th><label for="parol">Parol:</label></th>
+          <td>
+            <input type="password" name="parol" placeholder="password" value="user" required>
+            <p style="display:none;color:red;font-size:10px;font-style:italic;">minimum 8 simvol</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Cins:</th>
+          <td>
+            <label>
+              <input type="radio" name="gender" value="k"> Kisi
+            </label>
+            <label>
+              <input type="radio" name="gender" value="q"> Qadin
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <th><label for="list">User:</label></th>
+          <td>
+            <select name="list">
+              <option value="admin">admin</option>
+              <option value="user" selected>user</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>Maraqlar:</th>
+          <td>
+            <select name="interests">
+              <optgroup label="qrup1">
+                <option value="auto">Auto</option>
+                <option value="design">Dizayn</option>
+              </optgroup>
+              <optgroup label="qrup2">
+                <option value="sport">Idman</option>
+                <option value="music">Musiqi</option>
+              </optgroup>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th><label for="text">Melumat:</label></th>
+          <td>
+            <textarea name="text" rows="8" cols="30" placeholder="melumat...">melumat</textarea>
+            <p style="display:none;color:darkorange;font-size:10px;font-style:italic;">maksimum 50 simvol</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Tarix:</th>
+          <td>
+            <input type="date" name="date">
+          </td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>
+            <label>
+              <input type="checkbox" name="agree" checked/>
+              Sertlerle raziyam
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>
+            <button type="reset">Sifirla</button>
+            <button type="button">Duyme</button>
+            <button type="submit" id="btn">Gonder</button>
+          </td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </form>
+
+    <script>
+      $('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+      });
+
+      $('form').addEventListener('keydown', (e) => {
+        if(e.key === 'Enter') e.preventDefault();
+      });
+
+      $('#btn').addEventListener('click', (e) => {
+        const data = new FormData( $('form') );
+        console.clear();
+        console.log('Login:', data.get('login') );
+        console.log('Parol:', data.get('parol') );
+        console.log('Cins:', data.get('gender') );
+        console.log('User:', data.get('list') );
+        console.log('Maraqlar:', data.get('interests') );
+        console.log('Melumat:', data.get('text') );
+        console.log('Raziliq:', data.get('agree') );
+        console.log('Tarix:', data.get('date') );
+      });
+    </script>
+    <!-- <script src="./js/main.js"></script> -->
+  </body>
+</html>

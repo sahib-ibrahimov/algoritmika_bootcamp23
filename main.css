@@ -1,35 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-.data {
-  border-collapse: collapse;
-  font-family: 'Roboto', sans-serif;
-}
-
-.data td, .data th {
-  padding: 4px 8px;
-  border: 1px solid #ccc;
-}
-
-.data thead {
-  background-color: blueviolet;
-  color: white;
-}
-
-.red {
-  color: red;
-}
-
-.green {
-  color: green;
-}
-
-.bitcoin {
-  background-color: orange;
-  color: white;
 }
