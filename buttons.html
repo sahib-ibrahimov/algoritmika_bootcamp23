@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      #btn1 {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+      }
+      #btn2 {
+        position: absolute;
+        width: 60px;
+        height: 30px;
+        background-color: yellow;
+      }
+    </style>
+    <script src="./js/lib.js"></script>
+    <script src="./js/dom.js"></script>
+  </head>
+  <body>
+    <button id="btn1">Click</button>
+    <button style="top:0;left:0;" id="btn2">Click me!</button>
+
+    <script>
+      let drag = false;
+      $('#btn1').addEventListener('mousedown', (e) => {
+        e.target.style['position'] = 'absolute';
+        drag = true;
+      })
+      $('#btn1').addEventListener('mousemove', (e) => {
+        if(drag) {
+          e.target.style['top'] = e.clientY - e.target.clientHeight/2 + 'px';
+          e.target.style['left'] = e.clientX - e.target.clientWidth/2 + 'px';
+        }
+      })
+      $('#btn1').addEventListener('mouseup', (e) => {
+        drag = false;
+      })
+
+      $('#btn2').addEventListener('mousemove', (e) => {
+        let left = parseInt( e.target.style['left'] );
+        let top = parseInt( e.target.style['top'] );
+        switch( random(4) ) {
+          case 0:
+            top = e.clientY + e.target.clientHeight;
+            break;
+          case 1:
+            left = e.clientX + e.target.clientWidth;
+            break;
+          case 2:
+            top = e.clientY - e.target.clientHeight;
+            break;
+          case 3:
+            left = e.clientX - e.target.clientWidth;
+            break;
+        }
+        if(top < 0) top = 0;
+        if(left < 0) left = 0;
+        if(top > window.innerHeight - e.target.clientHeight)
+          top = window.innerHeight - e.target.clientHeight;
+        if(left > window.innerWidth - e.target.clientWidth)
+          left = window.innerWidth - e.target.clientWidth;
+        e.target.style['left'] = `${left}px`;
+        e.target.style['top'] = `${top}px`;
+      });
+
+    </script>
+
+    <!-- <script src="./js/main.js"></script> -->
+  </body>
+</html>
