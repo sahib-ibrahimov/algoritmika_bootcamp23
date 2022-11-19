@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="./js/lib.js"></script>
+    <script src="./js/dom.js"></script>
+    <script src="./js/table.js"></script>
+    <style media="screen">
+      body {
+        display: flex;
+        height: 100vh;
+      }
+      .section1 {
+        width: 30vw;
+        border-right: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .section2 {
+        width: 70vw;
+        padding-bottom: 10px;
+      }
+      .data {
+        border-collapse: collapse;
+      }
+      .data th, .data td {
+        padding: 4px 16px;
+        border: 1px solid black;
+      }
+      .list {
+        padding: 10px;
+        overflow-y: scroll;
+        height: 100%;
+      }
+      .id {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section1">
+      <form id="transaction">
+        <table>
+          <tbody>
+            <tr class="id">
+              <th>
+                <label for="id">id:</label>
+              </th>
+              <td>
+                <input type="number" id="id" readonly disabled name="id" />
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="from">from:</label>
+              </th>
+              <td>
+                <input type="text" id="from" name="from" />
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="to">to:</label>
+              </th>
+              <td>
+                <input type="text" id="to" name="to" />
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="amount">amount:</label>
+              </th>
+              <td>
+                <input type="number" id="amount" name="amount" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="right">
+                <button type="button" id="reload">reload</button>
+                <button type="reset">reset</button>
+                <button type="submit">submit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </section>
+    <section class="section2">
+      <div class="list">
+
+      </div>
+    </section>
+    <script src="./js/fetch.js"></script>
+  </body>
+</html>

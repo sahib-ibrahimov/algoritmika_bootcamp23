@@ -40,6 +40,10 @@ class Table extends Element {
   cells(row) {
     return this.tbody.children[row].children;
   }
+  getLastRow() {
+    const rows = this.tbody.children;
+    return rows[rows.length-1];
+  }
   colFormat(num, func, className1, className2) {
     for(const tr of this.rows()) {
       const td = tr.children[num];
